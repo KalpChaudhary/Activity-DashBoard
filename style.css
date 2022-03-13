@@ -78,6 +78,10 @@ header{
 
 
 
+.container .items{
+    /* border: 1px solid #fff; */
+    /* overflow:hidden; */
+}
 .container .items::before{
     content: '';
     position: absolute;
@@ -131,9 +135,16 @@ header{
     .container .item1 .profile{
         display: flex;
         margin-bottom:2rem;
+        width:100%;
+        justify-content: space-between;
+        align-items: center;
     }
     .container .item1 .profile>*:not(h5){
         margin-bottom:1rem;
+    }
+
+    .container .item1 .profile h1{
+        width: 100%;
     }
 
     .container .item1{
@@ -182,9 +193,7 @@ header{
         padding: 0 1rem 0rem 2rem; 
         top: 0rem;
 }
-
 }
-
 
 .time_period ul>*:not(:last-child){
     margin-bottom:1rem;
