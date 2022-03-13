@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Rubik:wght@300;400;500;600&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-body: hsl(226, 43%, 10%);
+  --color-boxes: hsl(235, 46%, 20%);
+  --color-activeBox: hsl(235, 40%, 32%);
+
+  --color-profile: hsl(246, 80%, 60%);
+  --color-work: hsl(15, 100%, 70%);
+  --color-play: hsl(195, 74%, 62%);
+  --color-study: hsl(348, 100%, 68%);
+  --color-exercise: hsl(145, 58%, 55%);
+  --color-social: hsl(264, 64%, 52%);
+  --color-selfcare: hsl(43, 84%, 65%);
+
+  --color-font: #bdc1ff;
+  --ff-all: "Rubik", sans-serif;
+
+  --fs-h1:2.5rem;
+
+  --border-radius-all: .5rem;
+}
+
+@media(max-width:1200px){
+    :root{
+        --fs-h1:2rem;
+
+    }
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--color-body);
+  color: #fff;
+  font-family:var(--ff-all);
+  position: relative;
+}
+
+header{
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display:grid;
+    place-items: center;
+
+}
+
+/*--------------------Styling container---------------------------*/
+
+.container{
+    width:80%;
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media(max-width:1200px){
+    .container{
+        width:100%;
+    }
+    header{
+        width:100%;
+    }
+}
+
+
+
+
+.container .items::before{
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 0;
+    right: 1rem;
+}
+
+
+.container .item1{
+    grid-row: 1 /span 2;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    background:var(--color-boxes);
+    border-radius: var(--border-radius-all);
+    /* overflow: hidden; */
+}
+
+
+
+/*-----------------Styling profile-----------------------------*/
+
+.container .item1 .profile{
+    margin-bottom:4rem;
+    background: var(--color-profile);
+    padding: 1rem;
+    border-radius: var(--border-radius-all);
+}
+.container .item1 img{
+    width: 30%;
+}
+
+.container .item1 .profile>*:not(h5){
+    margin-bottom:2rem;
+}
+.container .item1 .profile h1{
+    font-weight:300;
+    width: 80%;
+    font-size: var(--fs-h1);
+}
+.container .item1 .profile h5{
+    font-weight:500;
+}
+
+@media(max-width:750px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+
+    .container .item1 .profile{
+        display: flex;
+        margin-bottom:2rem;
+    }
+    .container .item1 .profile>*:not(h5){
+        margin-bottom:1rem;
+    }
+
+    .container .item1{
+        display:flex;
+        flex-direction:column;
+    }
+
+    header{
+        width:100%;
+        position: absolute;
+        top: 68%;
+    }    
+
+    .container .items{
+        height:12rem;
+    }
+
+    .box_text{
+        display: flex;
+        justify-content:space-between;
+    }
+}
+
+@media(max-width:750px){
+    header{
+        top: 86%;
+    }    
+    .container .item1 .profile{
+        margin-bottom:2rem;
+    }    
+
+}
+
+
+/*-------------------------Styling time period---------------------------*/
+
+.time_period{
+    padding: 0 1rem 1rem 2rem;
+    display: flex;
+    position: relative;
+    top: -1rem;
+}
+
+@media(max-width:750px){
+    .time_period{
+        padding: 0 1rem 0rem 2rem; 
+        top: 0rem;
+}
+
+}
+
+
+.time_period ul>*:not(:last-child){
+    margin-bottom:1rem;
+}
+
+.time_period ul li{
+    list-style: none;
+    cursor: pointer;
+}
+
+.time_period ul li a{
+    color: rgba(255, 255, 255, 0.384);
+    text-decoration: none;
+
+}
+.time_period ul li a.active{
+    color: #fff;
+}
+
+.time_period ul li a:hover{
+    color: #fff;
+}
+
+@media(max-width:750px){
+    .time_period ul{
+        display: flex;
+        width: 100%;
+        padding: 1rem 3rem;
+        justify-content: space-between;
+        /* align-items: items; */
+    }
+}
+
+/*----------------------styling items and its boxes-------------------------*/
+
+.container .items{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border-radius: var(--border-radius-all);
+    position: relative;
+}
+
+.container .items .boxes{
+    background: var(--color-boxes);
+    padding:1.5rem;
+    border-radius: var(--border-radius-all);
+    padding-bottom:2rem;
+    z-index: 100;
+    outline: 1px solid var(--color-boxes);
+    cursor: pointer;
+}
+
+.container .items .boxes span{
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.719);
+}
+
+
+
+.container .items .boxes:hover{
+    background: var(--color-activeBox);
+}
+
+.container .items .boxes h4{
+    font-weight: 500;
+}
+
+.container .items .boxes h1{
+    font-size:var(--fs-h1);
+    font-weight:300;
+}
+
+.container .items .boxes>*:not(h1){
+    margin-bottom:.6rem;
+}
+
+@media(max-width:800){
+    .container .items .boxes>*:not(h1){
+        margin-bottom:0rem;
+    }    
+}
+
+.container .items .boxes .small_nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container .items .boxes .small_nav img{
+    transform: translateY(6px);
+    height:5px;
+}
+
+/*--------------------set different background and img for unique items---------------------*/
+
+
+.container .item2{
+    background: var(--color-work);
+}
+.container .item2::before{
+    background: url(images/icon-work.svg);
+}
+
+
+.container .item3{
+    background: var(--color-play);
+}
+.container .item3::before{
+    background: url(images/icon-play.svg);
+}
+
+.container .item4{
+    background: var(--color-study);
+}
+.container .item4::before{
+    background: url(images/icon-study.svg);
+}
+
+.container .item5{
+    background: var(--color-exercise);
+}
+.container .item5::before{
+    background: url(images/icon-exercise.svg);
+}
+
+.container .item6{
+    background: var(--color-social);
+}
+.container .item6::before{
+    background: url(images/icon-social.svg);
+}
+
+.container .item7{
+    background: var(--color-selfcare);
+}
+.container .item7::before{
+    background: url(images/icon-self-care.svg);
+}
+
+/*--------------+-----------Media queries-----------------------------------*/

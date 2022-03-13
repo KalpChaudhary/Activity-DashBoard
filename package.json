@@ -1,0 +1,11 @@
+{
+  "name": "time_tracking_dashboard",
+  "version": "1.0.0",
+  "description": "Frontend mentor Dashboard task",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kalp Chaudhary",
+  "license": "ISC"
+}
